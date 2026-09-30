@@ -6,7 +6,7 @@ Can Blender's Cycles path tracer produce illuminance values good enough for ligh
 
 ## Results
 
-These are the CIE 171 analytical test cases (Section 5). The tolerance is 5% per measurement point and 10% globally, the criteria NVIDIA used in its Iray validation.
+These are the CIE 171 analytical test cases (Section 5). The tolerance is 5% per measurement point and 10% globally, the criteria NVIDIA used in its Iray validation. A case passes only if every measurement point is within tolerance; reference values that NVIDIA's validation also identified as CIE errata are excluded.
 
 | Test | What it checks | Result | Max error |
 |---|---|---|---|
@@ -16,21 +16,21 @@ These are the CIE 171 analytical test cases (Section 5). The tolerance is 5% per
 | 5.5 | Directional transmittance of clear glass | Not run | — |
 | 5.6 | Light reflection over diffuse surfaces | Pass | 0.25% |
 | 5.7 | Diffuse reflections with internal obstructions | Pass | 1.07% |
-| 5.8 | Internal reflected component | Partial | 1.79% for ρ ≤ 0.80; fails at ρ = 0.90 and 0.95 |
-| 5.9 | Sky component, unglazed roof opening | Pass | 4.23%, errata excluded |
-| 5.10 | Sky component, glazed roof opening | Pass | 3.8%, excluding edge point A |
-| 5.11 | Sky + externally reflected component, unglazed facade opening | Partial | Floor and ceiling under 3%; wall points at the opening edge 5–17% |
-| 5.12 | Same, glazed facade opening | Partial | Wall edge 8–10%; grazing-angle points 15–19% |
-| 5.13 | Unglazed opening with a horizontal mask | Pass at 1.0 m | 4.57%, errata excluded (0.5 m: 5–6%, 2.0 m: 8.5%) |
-| 5.14 | Unglazed opening with a vertical mask | Pass at 3 m | 1.79% (the 6 m and 9 m reference values are errata) |
+| 5.8 | Internal reflected component | Pass | 0.31%, ρ = 0.05 to 0.95 |
+| 5.9 | Sky component, unglazed roof opening | Partial | 28 of 30 sky/opening runs pass; edge point A at −5.7% and −6.8% in the other two (type 13 point G errata excluded) |
+| 5.10 | Sky component, glazed roof opening | Partial | Edge point A: −18 to −27% (1×1 opening), −6 to −8% (4×4, 7 of 15 skies); other points within 5% |
+| 5.11 | Sky + externally reflected component, unglazed facade opening | Partial | Wall points at the opening edge −6 to −17%; ceiling point H′ −5.2 to −5.5% (2×1); floor points within 5% |
+| 5.12 | Same, glazed facade opening | Partial | Wall points at the opening edge −6 to −18%; grazing-angle points N and N′ −14 to −19% (2×1) |
+| 5.13 | Unglazed opening with a horizontal mask | Partial | 0.5 m: 4 of 15 skies pass, point G −5 to −6% on the rest; 1.0 m: point G −11 to −12% on skies without the Table B.22 errata; 2.0 m: points F and G 7–12% |
+| 5.14 | Unglazed opening with a vertical mask | Partial | 3 m: 14 of 15 skies pass, one point at −5.8%; the 6 m and 9 m reference values are errata |
 
-Nine of the 13 cases pass, three pass partially, and one wasn't run. The experimental cases (Section 4) and the additional tests (Section 6) weren't run either. Details are in [docs/CIE/VALIDATION_STATUS.md](docs/CIE/VALIDATION_STATUS.md), and the raw results are in [docs/CIE/results](docs/CIE/results).
+All six electric-light cases that were run pass, and the six daylight cases pass partially: the misses are at points on opening edges, at grazing angles, and at mask shadow boundaries. Test 5.5 wasn't run. The experimental cases (Section 4) and the additional tests (Section 6) weren't run either. Details are in [docs/CIE/VALIDATION_STATUS.md](docs/CIE/VALIDATION_STATUS.md), and the raw results are in [docs/CIE/results](docs/CIE/results).
 
 ## What I learned
 
 These findings are useful to anyone doing lighting calculations in Cycles. There's more in [docs/CIE/NOTES.md](docs/CIE/NOTES.md).
 
-- **High-reflectance rooms read low.** Cycles ends paths early with Russian roulette, which biases interreflection when surfaces are very reflective: −11.65% at ρ = 0.90 and −32.42% at ρ = 0.95 in test 5.8. Raising the bounce limit doesn't fix it.
+- **Raise the transparent-bounce limit.** Calc grids are Transparent BSDF planes, and every pass through one counts against `transparent_max_bounces`, which defaults to 8. At that default, test 5.8 read −11.65% at ρ = 0.90 and −32.42% at ρ = 0.95, because paths bouncing between the floor and the room were cut short. With the limit at 1024, every reflectance is within 0.31%. I first blamed Russian roulette; that was wrong, since roulette reweights the paths it keeps and adds noise, not bias.
 - **Glass has to be a Transparent BSDF.** It's the only shader that shadow rays pass through. The glass is modeled as a Transparent BSDF tinted by double-surface Fresnel: (1 − F)² × 0.96, IOR 1.52.
 - **Points at the edge of an opening are sensitive.** They depend on bake resolution and the averaging kernel. The experiments are in [docs/CIE/rnd](docs/CIE/rnd).
 - **Sky orientation differs between roof and facade openings.** They need different HDRI azimuth rotations, and the wrong one gives 40–70% errors for skies with circumsolar brightening.
@@ -48,7 +48,7 @@ The math and the Blender specifics are in [docs/BLENDER_CYCLES_LIGHTING_CALC.md]
 
 ## Web app demo
 
-I also built a proof-of-concept web app on this engine. It imports a model, places IES luminaires, runs the calculation from the browser, and shows falsecolor results in a Three.js viewer. The app isn't in this repo; here's a [demo video](https://www.youtube.com/watch?v=kkUZkLPS4n0).
+I also built a proof-of-concept web app on this engine. It imports a model, places IES luminaires, runs the calculation from the browser, and shows false-color results in a Three.js viewer. The app isn't in this repo; here's a [demo video](https://www.youtube.com/watch?v=kkUZkLPS4n0).
 
 ## Running it
 
@@ -64,7 +64,7 @@ python3 cie171/runner.py --test 5.2 --analytical-only
 blender --background --python cie171/runner.py -- --test 5.2
 
 # Daylight tests (5.9–5.14): generate the sky HDRIs once, then run
-python3 cie171/cie_sky_generator.py
+python3 cie171/cie_sky_generator.py --resolution 1024
 blender --background --python cie171/runner_daylight.py -- --test 5.9 --opening 4x4 --sky-type 5
 ```
 

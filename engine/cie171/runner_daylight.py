@@ -1853,13 +1853,18 @@ def _run_test_and_save(test_id, test_case, opening, sky_id):
         results_dir = _results_dir(test_id)
         out_file = os.path.join(results_dir,
                                 f'blender_{opening}_type{sky_id:02d}.json')
+        # Cast numpy scalars to float; an infinite error (reference ~0) is saved as null.
+        def _num(v):
+            v = float(v)
+            return None if math.isinf(v) else v
         with open(out_file, 'w') as f:
             json.dump({
                 'sky_type': sky_id,
                 'opening': opening,
                 'pass': bool(result['pass']),
-                'max_error': result['max_error'],
-                'computed': result['computed'],
+                'max_error': _num(result['max_error']),
+                'computed': {k: _num(v) for k, v in result['computed'].items()},
+                'errors': {k: _num(v) for k, v in result.get('errors', {}).items()},
             }, f, indent=2)
         print(f"\n  Saved: {out_file}")
 

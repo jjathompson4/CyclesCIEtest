@@ -909,6 +909,12 @@ def configure_cycles_base(scene):
         cycles.device = 'CPU'
         print("CPU rendering (no GPU detected)")
 
+    # Calc grids are Transparent BSDF planes, and every pass through one
+    # counts against transparent_max_bounces (Blender default 8). At that
+    # default, paths bouncing between a gridded floor and the room are cut
+    # short: CIE 5.8 read 12% low at rho 0.90 and 32% low at rho 0.95.
+    cycles.transparent_max_bounces = 1024
+
     # Enable render passes
     view_layer = scene.view_layers[0]
     view_layer.use_pass_diffuse_color    = True

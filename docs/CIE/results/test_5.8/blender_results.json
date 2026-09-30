@@ -1,8 +1,8 @@
 {
   "0.0": {
     "reflectance": 0.0,
-    "E_total_blender": 104.8688251376152,
-    "E_direct_blender": 104.8688251376152,
+    "E_total_blender": 104.86883580684662,
+    "E_direct_blender": 104.86883580684662,
     "E_indirect_blender": 0.0,
     "E_indirect_ref": 0.0,
     "error_pct": 0.0
@@ -10,89 +10,89 @@
   "0.05": {
     "reflectance": 0.05,
     "E_total_blender": 110.35999047756195,
-    "E_direct_blender": 104.8688251376152,
-    "E_indirect_blender": 5.491165339946747,
+    "E_direct_blender": 104.86883580684662,
+    "E_indirect_blender": 5.491154670715332,
     "E_indirect_ref": 5.48,
-    "error_pct": 0.2037470793201898
+    "error_pct": 0.20355238531627015
   },
   "0.1": {
     "reflectance": 0.1,
     "E_total_blender": 116.46119046211243,
-    "E_direct_blender": 104.8688251376152,
-    "E_indirect_blender": 11.592365324497223,
+    "E_direct_blender": 104.86883580684662,
+    "E_indirect_blender": 11.592354655265808,
     "E_indirect_ref": 11.6,
-    "error_pct": -0.06581616812738574
+    "error_pct": -0.06590814426027189
   },
   "0.2": {
     "reflectance": 0.2,
     "E_total_blender": 130.94985735416412,
-    "E_direct_blender": 104.8688251376152,
-    "E_indirect_blender": 26.08103221654892,
+    "E_direct_blender": 104.86883580684662,
+    "E_indirect_blender": 26.081021547317505,
     "E_indirect_ref": 26.0,
-    "error_pct": 0.31166237134199876
+    "error_pct": 0.31162133583655727
   },
   "0.3": {
     "reflectance": 0.3,
-    "E_total_blender": 149.58133345842361,
-    "E_direct_blender": 104.8688251376152,
-    "E_indirect_blender": 44.71250832080841,
+    "E_total_blender": 149.5813868045807,
+    "E_direct_blender": 104.86883580684662,
+    "E_indirect_blender": 44.71255099773407,
     "E_indirect_ref": 44.6,
-    "error_pct": 0.2522608089874646
+    "error_pct": 0.25235649716158837
   },
   "0.4": {
     "reflectance": 0.4,
-    "E_total_blender": 174.4187387228012,
-    "E_direct_blender": 104.8688251376152,
-    "E_indirect_blender": 69.549913585186,
+    "E_total_blender": 174.41935753822327,
+    "E_direct_blender": 104.86883580684662,
+    "E_indirect_blender": 69.55052173137665,
     "E_indirect_ref": 69.4,
-    "error_pct": 0.21601381150720306
+    "error_pct": 0.2168901028481877
   },
   "0.5": {
     "reflectance": 0.5,
-    "E_total_blender": 209.18261551856995,
-    "E_direct_blender": 104.8688251376152,
-    "E_indirect_blender": 104.31379038095474,
+    "E_total_blender": 209.19164168834686,
+    "E_direct_blender": 104.86883580684662,
+    "E_indirect_blender": 104.32280588150024,
     "E_indirect_ref": 104.0,
-    "error_pct": 0.30172152014879083
+    "error_pct": 0.3103902706733117
   },
   "0.6": {
     "reflectance": 0.6,
-    "E_total_blender": 261.23476552963257,
-    "E_direct_blender": 104.8688251376152,
-    "E_indirect_blender": 156.36594039201736,
+    "E_total_blender": 261.3201620578766,
+    "E_direct_blender": 104.86883580684662,
+    "E_indirect_blender": 156.45132625102997,
     "E_indirect_ref": 156.0,
-    "error_pct": 0.23457717437010547
+    "error_pct": 0.2893116993781848
   },
   "0.7": {
     "reflectance": 0.7,
-    "E_total_blender": 347.47751319408417,
-    "E_direct_blender": 104.8688251376152,
-    "E_indirect_blender": 242.60868805646896,
+    "E_total_blender": 348.25540685653687,
+    "E_direct_blender": 104.86883580684662,
+    "E_indirect_blender": 243.38657104969025,
     "E_indirect_ref": 243.0,
-    "error_pct": -0.16103372161771046
+    "error_pct": 0.15908273649804386
   },
   "0.8": {
     "reflectance": 0.8,
-    "E_total_blender": 514.4077744483948,
-    "E_direct_blender": 104.8688251376152,
-    "E_indirect_blender": 409.53894931077957,
+    "E_total_blender": 522.2357468605042,
+    "E_direct_blender": 104.86883580684662,
+    "E_indirect_blender": 417.36691105365753,
     "E_indirect_ref": 417.0,
-    "error_pct": -1.7892207887818774
+    "error_pct": 0.08798826226799322
   },
   "0.9": {
     "reflectance": 0.9,
-    "E_total_blender": 932.7297310829163,
-    "E_direct_blender": 104.8688251376152,
-    "E_indirect_blender": 827.860905945301,
+    "E_total_blender": 1043.8512272834778,
+    "E_direct_blender": 104.86883580684662,
+    "E_indirect_blender": 938.9823914766312,
     "E_indirect_ref": 937.0,
-    "error_pct": -11.647715480757624
+    "error_pct": 0.21156792706842736
   },
   "0.95": {
     "reflectance": 0.95,
-    "E_total_blender": 1442.312110900879,
-    "E_direct_blender": 104.8688251376152,
-    "E_indirect_blender": 1337.4432857632637,
+    "E_total_blender": 2087.349772453308,
+    "E_direct_blender": 104.86883580684662,
+    "E_indirect_blender": 1982.4809366464615,
     "E_indirect_ref": 1979.0,
-    "error_pct": -32.418227096348474
+    "error_pct": 0.1758937163446936
   }
 }
