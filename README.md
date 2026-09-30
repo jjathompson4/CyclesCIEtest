@@ -46,6 +46,10 @@ These findings are useful to anyone doing lighting calculations in Cycles. There
 
 The math and the Blender specifics are in [docs/BLENDER_CYCLES_LIGHTING_CALC.md](docs/BLENDER_CYCLES_LIGHTING_CALC.md) and [docs/analysis-pass-math.md](docs/analysis-pass-math.md).
 
+## Web app demo
+
+I also built a proof-of-concept web app on this engine. It imports a model, places IES luminaires, runs the calculation from the browser, and shows falsecolor results in a Three.js viewer. The app isn't in this repo; here's a [demo video](https://www.youtube.com/watch?v=kkUZkLPS4n0).
+
 ## Running it
 
 You need Blender 5 (developed on 5.0, checked on 5.1). The Blender scripts use Blender's bundled Python. The standalone scripts need Python 3 with numpy and matplotlib.
