@@ -1,0 +1,13 @@
+# CyclesCIEtest engine dependencies
+#
+# All dependencies are bundled with Blender 5.0+:
+#   - bpy (Blender Python API)
+#   - numpy
+#   - matplotlib (for falsecolor and PDF generation)
+#
+# The only external requirement is Blender itself, installed separately.
+# Run scripts with:
+#   blender --background --python <script.py>
+#
+# For standalone scripts (falsecolor.py, plan_view_pdf.py, ies_direct_calc.py),
+# only numpy and matplotlib are needed (no Blender).

@@ -1,0 +1,45 @@
+{
+  "emitted_flux_lm": 10000.0,
+  "total_surface_flux_lm": 10028.045687198639,
+  "ratio": 1.002804568719864,
+  "error_pct": 0.2804568719863898,
+  "pass": true,
+  "surfaces": [
+    {
+      "name": "Floor",
+      "area_m2": 16.0,
+      "avg_lux": 139.23463290929794,
+      "flux_lm": 2227.754126548767
+    },
+    {
+      "name": "Ceiling",
+      "area_m2": 16.0,
+      "avg_lux": 139.2346115708351,
+      "flux_lm": 2227.753785133362
+    },
+    {
+      "name": "Wall_South",
+      "area_m2": 12.0,
+      "avg_lux": 116.09412622451782,
+      "flux_lm": 1393.1295146942139
+    },
+    {
+      "name": "Wall_North",
+      "area_m2": 12.0,
+      "avg_lux": 116.09503310918808,
+      "flux_lm": 1393.140397310257
+    },
+    {
+      "name": "Wall_West",
+      "area_m2": 12.0,
+      "avg_lux": 116.09401953220367,
+      "flux_lm": 1393.128234386444
+    },
+    {
+      "name": "Wall_East",
+      "area_m2": 12.0,
+      "avg_lux": 116.09496909379959,
+      "flux_lm": 1393.139629125595
+    }
+  ]
+}

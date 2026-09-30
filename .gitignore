@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Render outputs and generated images
+*.exr
+*.hdr
+calcgrid_*.png
+fc_*.png
+perspective_render.png
+
+# Generated results (committed CIE results live in docs/CIE/results)
+calcgrid_results.json
+calcgrid_results.txt
+*_results.txt
+
+# Keep third-party PDFs (the CIE standard, vendor reports) and generated plans out
+*.pdf
+
+# OS / sync
+.DS_Store
+* [0-9].*

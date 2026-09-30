@@ -1,0 +1,86 @@
+{
+  "0.0": {
+    "reflectance": 0.0,
+    "E_direct": 104.16666666666667,
+    "E_indirect_calc": 0.0,
+    "E_indirect_ref": 0.0,
+    "E_total": 104.16666666666667
+  },
+  "0.05": {
+    "reflectance": 0.05,
+    "E_direct": 104.16666666666667,
+    "E_indirect_calc": 5.482456140350877,
+    "E_indirect_ref": 5.48,
+    "E_total": 109.64912280701755
+  },
+  "0.1": {
+    "reflectance": 0.1,
+    "E_direct": 104.16666666666667,
+    "E_indirect_calc": 11.574074074074073,
+    "E_indirect_ref": 11.6,
+    "E_total": 115.74074074074075
+  },
+  "0.2": {
+    "reflectance": 0.2,
+    "E_direct": 104.16666666666667,
+    "E_indirect_calc": 26.041666666666664,
+    "E_indirect_ref": 26.0,
+    "E_total": 130.20833333333334
+  },
+  "0.3": {
+    "reflectance": 0.3,
+    "E_direct": 104.16666666666667,
+    "E_indirect_calc": 44.642857142857146,
+    "E_indirect_ref": 44.6,
+    "E_total": 148.80952380952382
+  },
+  "0.4": {
+    "reflectance": 0.4,
+    "E_direct": 104.16666666666667,
+    "E_indirect_calc": 69.44444444444444,
+    "E_indirect_ref": 69.4,
+    "E_total": 173.61111111111111
+  },
+  "0.5": {
+    "reflectance": 0.5,
+    "E_direct": 104.16666666666667,
+    "E_indirect_calc": 104.16666666666666,
+    "E_indirect_ref": 104.0,
+    "E_total": 208.33333333333331
+  },
+  "0.6": {
+    "reflectance": 0.6,
+    "E_direct": 104.16666666666667,
+    "E_indirect_calc": 156.25,
+    "E_indirect_ref": 156.0,
+    "E_total": 260.4166666666667
+  },
+  "0.7": {
+    "reflectance": 0.7,
+    "E_direct": 104.16666666666667,
+    "E_indirect_calc": 243.0555555555555,
+    "E_indirect_ref": 243.0,
+    "E_total": 347.2222222222222
+  },
+  "0.8": {
+    "reflectance": 0.8,
+    "E_direct": 104.16666666666667,
+    "E_indirect_calc": 416.66666666666674,
+    "E_indirect_ref": 417.0,
+    "E_total": 520.8333333333334
+  },
+  "0.9": {
+    "reflectance": 0.9,
+    "E_direct": 104.16666666666667,
+    "E_indirect_calc": 937.5000000000002,
+    "E_indirect_ref": 937.0,
+    "E_total": 1041.666666666667
+  },
+  "0.95": {
+    "reflectance": 0.95,
+    "E_direct": 104.16666666666667,
+    "E_indirect_calc": 1979.166666666665,
+    "E_indirect_ref": 1979.0,
+    "E_total": 2083.3333333333317
+  }
+}
